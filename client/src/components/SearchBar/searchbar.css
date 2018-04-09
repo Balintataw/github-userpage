@@ -1,0 +1,20 @@
+.searchbar-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10px;
+    border-bottom: 1px solid black;
+}
+
+.searchbar-container a, .user-nav, .fa-github {
+    display: flex;
+    align-items: center;
+}
+
+.fa-github {
+    font-size: 40px;
+}
+
+.search-input {
+    width: 400px;
+}
+

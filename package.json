@@ -1,0 +1,20 @@
+{
+  "name": "express-git-profile",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "start": "concurrently \"cd server && yarn start\" \"cd client && yarn start\""
+  },
+  "dependencies": {
+    "concurrently": "^3.5.1"
+  },
+  "boilerplate": {
+    "name": "react-redux-boilerplate",
+    "version": "1.0.0",
+    "author": "Michael Sweeney <jfmike@gmail.com> (https://github.com/overthemike)",
+    "license": "MIT"
+  },
+  "description": ""
+}
