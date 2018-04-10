@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import './userprofile.css'
-import { getUserRepos } from '../../actions/githubActions';
 
 export class UserProfile extends Component {
     static defaultProps = {
@@ -22,7 +21,8 @@ export class UserProfile extends Component {
             <div>
                 {this.props.repos.map(repo => {
                     return  <div key={'repo' + repo.id}>
-                                <h1>{repo.name}</h1>
+                                <h3>{repo.name}</h3>
+                                <p>{repo.language}</p>
                             </div>
                 })}
             </div>
