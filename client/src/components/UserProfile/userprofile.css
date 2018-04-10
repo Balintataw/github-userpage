@@ -1,0 +1,14 @@
+#profile-data-container {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+}
+
+.user-repo-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+    border-bottom: 1px solid black;
+}

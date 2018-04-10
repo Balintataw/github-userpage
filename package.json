@@ -8,7 +8,8 @@
     "start": "concurrently \"cd server && yarn start\" \"cd client && yarn start\""
   },
   "dependencies": {
-    "concurrently": "^3.5.1"
+    "concurrently": "^3.5.1",
+    "request": "^2.85.0"
   },
   "boilerplate": {
     "name": "react-redux-boilerplate",

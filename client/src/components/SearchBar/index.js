@@ -1,13 +1,37 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import  'font-awesome/css/font-awesome.min.css'
 import './searchbar.css'
+import { getUser } from '../../actions/githubActions';
 
 export class SearchBar extends Component {
+    static defaultProps = {
+        searchValue: {},
+        user: {}
+    }
+    state = {
+        searchValue: ''
+    }
+
+    searchValue = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+    handleSubmit = (e) => {
+        e.preventDefault()
+        getUser(this.state.searchValue)
+        this.setState({
+            searchValue: ''
+        })
+    }
     render() {
         return (
             <div className="searchbar-container">
                 <span className="fa fa-github"></span>
-                <input type="text" className="search-input"/>
+                <form onSubmit={this.handleSubmit}>
+                    <input onChange={this.searchValue} value={this.state.searchValue} name="searchValue" type="text" className="search-input"/>
+                </form>
                 <a href="#">Pull Requests</a>
                 <a href="#">Issues</a>
                 <a href="#">Marketplace</a>
@@ -16,11 +40,17 @@ export class SearchBar extends Component {
                     <span className="fa fa-bell-o"></span>
                     <span className="fa fa-plus"></span>
                     <span className="fa fa-caret-down"></span>
-                    <img src="http://placehold.it/50/50" />
+                    <img src={this.props.user.avatar_url} id="user-image-small" alt="user avatar"/>
                 </div>
             </div>
         )
     }
 };
 
-export default SearchBar;
+function mapStateToProps(state) {
+    return {
+        user: state.githubReducer.data.user
+    }
+}
+
+export default connect(mapStateToProps)(SearchBar)
